@@ -1,0 +1,9 @@
+[
+  { "_id": "cat001", "name": "Coffee" },
+  { "_id": "cat002", "name": "Tea" },
+  { "_id": "cat003", "name": "Smoothie" },
+  { "_id": "cat004", "name": "Juice" },
+  { "_id": "cat005", "name": "Food" },
+  { "_id": "cat006", "name": "Dessert" },
+  { "_id": "cat007", "name": "Other" }
+]

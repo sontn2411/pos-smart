@@ -1,0 +1,1675 @@
+[
+  {
+    "_id": "prod001",
+    "category": "cat001",
+    "name": "Espresso",
+    "desc": "A rich and intense shot of pure espresso topped with a golden layer of crema.",
+    "price": 2.5,
+    "stock": 200,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_shot",
+        "name": "Shot",
+        "subvariations": [
+          {
+            "_id": "sub_shot_single",
+            "name": "Single Shot",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_shot_double",
+            "name": "Double Shot"
+          }
+        ]
+      },
+      {
+        "_id": "var_bean",
+        "name": "Bean Type",
+        "subvariations": [
+          {
+            "_id": "sub_bean_house",
+            "name": "House Blend",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_bean_arabica",
+            "name": "Arabica Single Origin"
+          },
+          {
+            "_id": "sub_bean_decaf",
+            "name": "Decaf"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "prod002",
+    "category": "cat001",
+    "name": "Americano",
+    "desc": "Espresso diluted with hot water, delivering a smooth, bold, and robust coffee flavor.",
+    "price": 3,
+    "stock": 180,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1551030173-122aabc4489c?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_m",
+            "name": "Regular (M)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_l",
+            "name": "Large (L)"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_addon_shot",
+        "name": "Extra Espresso Shot",
+        "price": 0.8
+      },
+      {
+        "_id": "sub_addon_syrup_vanilla",
+        "name": "Vanilla Syrup",
+        "price": 0.5
+      },
+      {
+        "_id": "sub_addon_syrup_caramel",
+        "name": "Caramel Syrup",
+        "price": 0.5
+      }
+    ]
+  },
+  {
+    "_id": "prod003",
+    "category": "cat001",
+    "name": "Latte",
+    "desc": "Rich espresso combined with silky steamed milk and finished with a delicate layer of foam.",
+    "price": 3.5,
+    "stock": 150,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_m",
+            "name": "Regular (M)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_l",
+            "name": "Large (L)"
+          }
+        ]
+      },
+      {
+        "_id": "var_milk",
+        "name": "Milk Option",
+        "subvariations": [
+          {
+            "_id": "sub_milk_whole",
+            "name": "Whole Milk",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_milk_skim",
+            "name": "Skim Milk"
+          },
+          {
+            "_id": "sub_milk_oat",
+            "name": "Oat Milk"
+          },
+          {
+            "_id": "sub_milk_almond",
+            "name": "Almond Milk"
+          }
+        ]
+      },
+      {
+        "_id": "var_sugar",
+        "name": "Sweetness",
+        "subvariations": [
+          {
+            "_id": "sub_sugar_100",
+            "name": "100% Sugar",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_sugar_70",
+            "name": "70% Sugar"
+          },
+          {
+            "_id": "sub_sugar_50",
+            "name": "50% Sugar"
+          },
+          {
+            "_id": "sub_sugar_0",
+            "name": "No Sugar"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_addon_shot",
+        "name": "Extra Espresso Shot",
+        "price": 0.8
+      },
+      {
+        "_id": "sub_addon_syrup_vanilla",
+        "name": "Vanilla Syrup",
+        "price": 0.5
+      },
+      {
+        "_id": "sub_addon_syrup_caramel",
+        "name": "Caramel Syrup",
+        "price": 0.5
+      }
+    ]
+  },
+  {
+    "_id": "prod004",
+    "category": "cat001",
+    "name": "Cappuccino",
+    "desc": "Classic Italian coffee crafted with equal parts espresso, velvety steamed milk, and dense foam.",
+    "price": 3.5,
+    "stock": 160,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_m",
+            "name": "Regular (M)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_l",
+            "name": "Large (L)"
+          }
+        ]
+      },
+      {
+        "_id": "var_milk",
+        "name": "Milk Option",
+        "subvariations": [
+          {
+            "_id": "sub_milk_whole",
+            "name": "Whole Milk",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_milk_oat",
+            "name": "Oat Milk"
+          }
+        ]
+      },
+      {
+        "_id": "var_dusting",
+        "name": "Topping Dust",
+        "subvariations": [
+          {
+            "_id": "sub_dust_cocoa",
+            "name": "Cocoa Powder",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_dust_cinnamon",
+            "name": "Cinnamon"
+          },
+          {
+            "_id": "sub_dust_none",
+            "name": "None"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "prod005",
+    "category": "cat001",
+    "name": "Mocha",
+    "desc": "A delectable blend of bold espresso, rich dark chocolate, and steamed milk with whipped cream.",
+    "price": 4,
+    "stock": 130,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_m",
+            "name": "Regular (M)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_l",
+            "name": "Large (L)"
+          }
+        ]
+      },
+      {
+        "_id": "var_whipped",
+        "name": "Whipped Cream",
+        "subvariations": [
+          {
+            "_id": "sub_whip_yes",
+            "name": "With Whipped Cream",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_whip_no",
+            "name": "No Whipped Cream"
+          }
+        ]
+      },
+      {
+        "_id": "var_milk",
+        "name": "Milk Option",
+        "subvariations": [
+          {
+            "_id": "sub_milk_whole",
+            "name": "Whole Milk",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_milk_oat",
+            "name": "Oat Milk"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "prod006",
+    "category": "cat002",
+    "name": "Green Tea",
+    "desc": "Traditional whole-leaf green tea offering delicate floral notes and a clean, refreshing finish.",
+    "price": 2.5,
+    "stock": 120,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_m",
+            "name": "Regular (M)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_l",
+            "name": "Large (L)"
+          }
+        ]
+      },
+      {
+        "_id": "var_sugar",
+        "name": "Sweetness",
+        "subvariations": [
+          {
+            "_id": "sub_sugar_100",
+            "name": "100% Sugar"
+          },
+          {
+            "_id": "sub_sugar_70",
+            "name": "70% Sugar"
+          },
+          {
+            "_id": "sub_sugar_50",
+            "name": "50% Sugar"
+          },
+          {
+            "_id": "sub_sugar_0",
+            "name": "No Sugar (Pure)",
+            "isDefault": true
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_addon_honey",
+        "name": "Wild Honey",
+        "price": 0.5
+      },
+      {
+        "_id": "sub_addon_aloe",
+        "name": "Aloe Vera",
+        "price": 0.6
+      },
+      {
+        "_id": "sub_addon_chia",
+        "name": "Chia Seeds",
+        "price": 0.5
+      }
+    ]
+  },
+  {
+    "_id": "prod007",
+    "category": "cat002",
+    "name": "Black Tea",
+    "desc": "Full-bodied Ceylon black tea delivering a strong aroma, brisk character, and vibrant taste.",
+    "price": 2.5,
+    "stock": 140,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_m",
+            "name": "Regular (M)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_l",
+            "name": "Large (L)"
+          }
+        ]
+      },
+      {
+        "_id": "var_sugar",
+        "name": "Sweetness",
+        "subvariations": [
+          {
+            "_id": "sub_sugar_100",
+            "name": "100% Sugar",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_sugar_70",
+            "name": "70% Sugar"
+          },
+          {
+            "_id": "sub_sugar_50",
+            "name": "50% Sugar"
+          },
+          {
+            "_id": "sub_sugar_0",
+            "name": "0% Sugar"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_addon_lemon",
+        "name": "Fresh Lemon Slice",
+        "price": 0.4
+      },
+      {
+        "_id": "sub_addon_peach",
+        "name": "Peach Popping Boba",
+        "price": 0.6
+      }
+    ]
+  },
+  {
+    "_id": "prod008",
+    "category": "cat002",
+    "name": "Milk Tea",
+    "desc": "Smooth and creamy milk tea brewed from premium tea leaves, sweetened to perfection.",
+    "price": 3.5,
+    "stock": 110,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1558857563-b371033873b8?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_m",
+            "name": "Regular (M)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_l",
+            "name": "Large (L)"
+          }
+        ]
+      },
+      {
+        "_id": "var_sugar",
+        "name": "Sugar Level",
+        "subvariations": [
+          {
+            "_id": "sub_sugar_100",
+            "name": "100% Sugar"
+          },
+          {
+            "_id": "sub_sugar_70",
+            "name": "70% Sugar",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_sugar_50",
+            "name": "50% Sugar"
+          },
+          {
+            "_id": "sub_sugar_30",
+            "name": "30% Sugar"
+          },
+          {
+            "_id": "sub_sugar_0",
+            "name": "No Sugar"
+          }
+        ]
+      },
+      {
+        "_id": "var_ice",
+        "name": "Ice Level",
+        "subvariations": [
+          {
+            "_id": "sub_ice_normal",
+            "name": "Regular Ice",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_ice_less",
+            "name": "Less Ice (50%)"
+          },
+          {
+            "_id": "sub_ice_none",
+            "name": "No Ice"
+          },
+          {
+            "_id": "sub_ice_hot",
+            "name": "Hot"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_top_boba",
+        "name": "Brown Sugar Boba",
+        "price": 0.6
+      },
+      {
+        "_id": "sub_top_pudding",
+        "name": "Egg Pudding",
+        "price": 0.8
+      },
+      {
+        "_id": "sub_top_grassjelly",
+        "name": "Grass Jelly",
+        "price": 0.6
+      },
+      {
+        "_id": "sub_top_cheese",
+        "name": "Cheese Foam",
+        "price": 1
+      }
+    ]
+  },
+  {
+    "_id": "prod009",
+    "category": "cat002",
+    "name": "Matcha Latte",
+    "desc": "Finely ground Japanese matcha whisked with fresh milk for a vibrant, earthy, and creamy beverage.",
+    "price": 4,
+    "stock": 100,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_m",
+            "name": "Regular (M)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_l",
+            "name": "Large (L)"
+          }
+        ]
+      },
+      {
+        "_id": "var_sugar",
+        "name": "Sugar Level",
+        "subvariations": [
+          {
+            "_id": "sub_sugar_100",
+            "name": "100% Sugar"
+          },
+          {
+            "_id": "sub_sugar_70",
+            "name": "70% Sugar",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_sugar_50",
+            "name": "50% Sugar"
+          },
+          {
+            "_id": "sub_sugar_0",
+            "name": "No Sugar"
+          }
+        ]
+      },
+      {
+        "_id": "var_milk",
+        "name": "Milk Choice",
+        "subvariations": [
+          {
+            "_id": "sub_milk_fresh",
+            "name": "Fresh Milk",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_milk_oat",
+            "name": "Oat Milk"
+          },
+          {
+            "_id": "sub_milk_soy",
+            "name": "Soy Milk"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_top_redbean",
+        "name": "Sweet Red Bean",
+        "price": 0.6
+      },
+      {
+        "_id": "sub_top_boba",
+        "name": "Boba",
+        "price": 0.6
+      },
+      {
+        "_id": "sub_top_cheese",
+        "name": "Cheese Foam",
+        "price": 1
+      }
+    ]
+  },
+  {
+    "_id": "prod010",
+    "category": "cat002",
+    "name": "Thai Tea",
+    "desc": "Authentic Thai spiced tea infused with fragrant star anise and blended with condensed milk.",
+    "price": 3.5,
+    "stock": 90,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_m",
+            "name": "Regular (M)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_l",
+            "name": "Large (L)"
+          }
+        ]
+      },
+      {
+        "_id": "var_sugar",
+        "name": "Sugar Level",
+        "subvariations": [
+          {
+            "_id": "sub_sugar_100",
+            "name": "100% Sugar",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_sugar_70",
+            "name": "70% Sugar"
+          },
+          {
+            "_id": "sub_sugar_50",
+            "name": "50% Sugar"
+          }
+        ]
+      },
+      {
+        "_id": "var_ice",
+        "name": "Ice Level",
+        "subvariations": [
+          {
+            "_id": "sub_ice_normal",
+            "name": "Regular Ice",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_ice_less",
+            "name": "Less Ice"
+          },
+          {
+            "_id": "sub_ice_none",
+            "name": "No Ice"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_top_boba",
+        "name": "Brown Sugar Boba",
+        "price": 0.6
+      },
+      {
+        "_id": "sub_top_coconut",
+        "name": "Coconut Jelly",
+        "price": 0.6
+      },
+      {
+        "_id": "sub_top_cheese",
+        "name": "Cheese Foam",
+        "price": 1
+      }
+    ]
+  },
+  {
+    "_id": "prod011",
+    "category": "cat003",
+    "name": "Strawberry Smoothie",
+    "desc": "A creamy and refreshing smoothie blended with ripe strawberries, yogurt, and a touch of sweetness.",
+    "price": 4.5,
+    "stock": 85,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1553530666-ba11a7da3888?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_16oz",
+            "name": "Medium (16oz)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_24oz",
+            "name": "Large (24oz)"
+          }
+        ]
+      },
+      {
+        "_id": "var_base",
+        "name": "Smoothie Base",
+        "subvariations": [
+          {
+            "_id": "sub_base_milk",
+            "name": "Whole Milk Base",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_base_yogurt",
+            "name": "Greek Yogurt Base"
+          },
+          {
+            "_id": "sub_base_coconut",
+            "name": "Coconut Milk Base"
+          }
+        ]
+      },
+      {
+        "_id": "var_sweetness",
+        "name": "Sweetness",
+        "subvariations": [
+          {
+            "_id": "sub_sweet_reg",
+            "name": "Regular Sweetness",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_sweet_less",
+            "name": "Less Sweet"
+          },
+          {
+            "_id": "sub_sweet_no",
+            "name": "No Added Sugar"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_boost_chia",
+        "name": "Chia Seeds",
+        "price": 0.5
+      },
+      {
+        "_id": "sub_boost_protein",
+        "name": "Whey Protein Scoop",
+        "price": 1.2
+      },
+      {
+        "_id": "sub_boost_extra_straw",
+        "name": "Extra Fresh Strawberries",
+        "price": 0.8
+      }
+    ]
+  },
+  {
+    "_id": "prod012",
+    "category": "cat003",
+    "name": "Mango Smoothie",
+    "desc": "Tropical sun-ripened mangoes blended into a luscious, smooth, and vibrant fruit smoothie.",
+    "price": 4.5,
+    "stock": 80,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_16oz",
+            "name": "Medium (16oz)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_24oz",
+            "name": "Large (24oz)"
+          }
+        ]
+      },
+      {
+        "_id": "var_base",
+        "name": "Smoothie Base",
+        "subvariations": [
+          {
+            "_id": "sub_base_milk",
+            "name": "Whole Milk Base",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_base_yogurt",
+            "name": "Greek Yogurt Base"
+          },
+          {
+            "_id": "sub_base_coconut",
+            "name": "Coconut Milk Base"
+          }
+        ]
+      },
+      {
+        "_id": "var_sweetness",
+        "name": "Sweetness",
+        "subvariations": [
+          {
+            "_id": "sub_sweet_reg",
+            "name": "Regular Sweetness",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_sweet_less",
+            "name": "Less Sweet"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_boost_mango",
+        "name": "Extra Fresh Mango",
+        "price": 0.8
+      },
+      {
+        "_id": "sub_boost_jelly",
+        "name": "Coconut Jelly",
+        "price": 0.6
+      },
+      {
+        "_id": "sub_boost_chia",
+        "name": "Chia Seeds",
+        "price": 0.5
+      }
+    ]
+  },
+  {
+    "_id": "prod013",
+    "category": "cat003",
+    "name": "Banana Smoothie",
+    "desc": "Rich and wholesome smoothie crafted from fresh bananas, cold milk, and a dash of natural honey.",
+    "price": 4,
+    "stock": 75,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1638176066666-ffb2f013c7dd?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_16oz",
+            "name": "Medium (16oz)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_24oz",
+            "name": "Large (24oz)"
+          }
+        ]
+      },
+      {
+        "_id": "var_base",
+        "name": "Smoothie Base",
+        "subvariations": [
+          {
+            "_id": "sub_base_milk",
+            "name": "Fresh Milk",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_base_oat",
+            "name": "Oat Milk"
+          },
+          {
+            "_id": "sub_base_yogurt",
+            "name": "Greek Yogurt"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_boost_peanut",
+        "name": "Peanut Butter Scoop",
+        "price": 0.8
+      },
+      {
+        "_id": "sub_boost_protein",
+        "name": "Chocolate Protein",
+        "price": 1.2
+      },
+      {
+        "_id": "sub_boost_granola",
+        "name": "Crunchy Granola",
+        "price": 0.6
+      }
+    ]
+  },
+  {
+    "_id": "prod014",
+    "category": "cat004",
+    "name": "Orange Juice",
+    "desc": "100% freshly squeezed ripe oranges, bursting with vitamin C and naturally refreshing citrus flavor.",
+    "price": 3,
+    "stock": 100,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_350ml",
+            "name": "Regular (350ml)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_500ml",
+            "name": "Large (500ml)"
+          }
+        ]
+      },
+      {
+        "_id": "var_ice",
+        "name": "Ice Level",
+        "subvariations": [
+          {
+            "_id": "sub_ice_yes",
+            "name": "With Ice",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_ice_no",
+            "name": "No Ice (Chilled)"
+          }
+        ]
+      },
+      {
+        "_id": "var_sugar",
+        "name": "Sugar Level",
+        "subvariations": [
+          {
+            "_id": "sub_sugar_pure",
+            "name": "100% Pure (No Added Sugar)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_sugar_cane",
+            "name": "Add Cane Sugar"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_addon_mint",
+        "name": "Fresh Mint Leaves",
+        "price": 0.4
+      },
+      {
+        "_id": "sub_addon_chia",
+        "name": "Chia Seeds",
+        "price": 0.5
+      }
+    ]
+  },
+  {
+    "_id": "prod015",
+    "category": "cat004",
+    "name": "Watermelon Juice",
+    "desc": "Cold-pressed fresh watermelon juice, intensely hydrating, light, and naturally sweet.",
+    "price": 3,
+    "stock": 80,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_350ml",
+            "name": "Regular (350ml)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_500ml",
+            "name": "Large (500ml)"
+          }
+        ]
+      },
+      {
+        "_id": "var_ice",
+        "name": "Ice Level",
+        "subvariations": [
+          {
+            "_id": "sub_ice_yes",
+            "name": "With Ice",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_ice_no",
+            "name": "No Ice"
+          }
+        ]
+      },
+      {
+        "_id": "var_sugar",
+        "name": "Sweetness",
+        "subvariations": [
+          {
+            "_id": "sub_sugar_pure",
+            "name": "Natural Sweetness (No Sugar)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_sugar_sweet",
+            "name": "Sweeter (Add Sugar)"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_addon_lime",
+        "name": "Fresh Lime Squeeze",
+        "price": 0.3
+      },
+      {
+        "_id": "sub_addon_mint",
+        "name": "Fresh Mint Leaves",
+        "price": 0.4
+      }
+    ]
+  },
+  {
+    "_id": "prod016",
+    "category": "cat005",
+    "name": "Chicken Sandwich",
+    "desc": "Juicy grilled chicken breast served with crisp lettuce, sliced tomatoes, and creamy dressing on toasted bread.",
+    "price": 6.5,
+    "stock": 40,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_bread",
+        "name": "Bread Choice",
+        "subvariations": [
+          {
+            "_id": "sub_bread_toast",
+            "name": "White Toast",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_bread_wheat",
+            "name": "Whole Wheat Toast"
+          },
+          {
+            "_id": "sub_bread_brioche",
+            "name": "Brioche Bun"
+          },
+          {
+            "_id": "sub_bread_croissant",
+            "name": "Butter Croissant"
+          }
+        ]
+      },
+      {
+        "_id": "var_sauce",
+        "name": "Sauce",
+        "subvariations": [
+          {
+            "_id": "sub_sauce_mayo",
+            "name": "Classic Mayo",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_sauce_spicy",
+            "name": "Spicy Sriracha Mayo"
+          },
+          {
+            "_id": "sub_sauce_mustard",
+            "name": "Honey Mustard"
+          },
+          {
+            "_id": "sub_sauce_bbq",
+            "name": "Smoky BBQ"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_extra_cheese",
+        "name": "Cheddar Cheese Slice",
+        "price": 0.8
+      },
+      {
+        "_id": "sub_extra_bacon",
+        "name": "Crispy Bacon",
+        "price": 1.2
+      },
+      {
+        "_id": "sub_extra_egg",
+        "name": "Fried Egg",
+        "price": 0.8
+      },
+      {
+        "_id": "sub_extra_avocado",
+        "name": "Fresh Avocado",
+        "price": 1.5
+      }
+    ]
+  },
+  {
+    "_id": "prod017",
+    "category": "cat005",
+    "name": "Caesar Salad",
+    "desc": "Crisp romaine lettuce tossed with classic Caesar dressing, garlic croutons, and aged shaved parmesan.",
+    "price": 5.5,
+    "stock": 35,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_portion",
+        "name": "Portion Size",
+        "subvariations": [
+          {
+            "_id": "sub_portion_regular",
+            "name": "Side Salad",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_portion_large",
+            "name": "Entrée Size"
+          }
+        ]
+      },
+      {
+        "_id": "var_dressing",
+        "name": "Dressing Style",
+        "subvariations": [
+          {
+            "_id": "sub_dress_mixed",
+            "name": "Tossed with Dressing",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_dress_side",
+            "name": "Dressing on the Side"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_prot_chicken",
+        "name": "Grilled Chicken Breast",
+        "price": 2
+      },
+      {
+        "_id": "sub_prot_salmon",
+        "name": "Smoked Salmon",
+        "price": 3
+      },
+      {
+        "_id": "sub_prot_egg",
+        "name": "Boiled Egg",
+        "price": 0.8
+      },
+      {
+        "_id": "sub_prot_bacon",
+        "name": "Bacon Bits",
+        "price": 1
+      }
+    ]
+  },
+  {
+    "_id": "prod018",
+    "category": "cat005",
+    "name": "Spaghetti Bolognese",
+    "desc": "Tender al dente pasta tossed in a rich, slow-simmered minced beef and Italian tomato sauce.",
+    "price": 7.5,
+    "stock": 30,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_portion",
+        "name": "Portion Size",
+        "subvariations": [
+          {
+            "_id": "sub_port_reg",
+            "name": "Regular Portion",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_port_large",
+            "name": "Large Portion"
+          }
+        ]
+      },
+      {
+        "_id": "var_pasta",
+        "name": "Pasta Type",
+        "subvariations": [
+          {
+            "_id": "sub_pasta_spaghetti",
+            "name": "Spaghetti",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_pasta_penne",
+            "name": "Penne"
+          },
+          {
+            "_id": "sub_pasta_gf",
+            "name": "Gluten-Free Pasta"
+          }
+        ]
+      },
+      {
+        "_id": "var_spice",
+        "name": "Spice Level",
+        "subvariations": [
+          {
+            "_id": "sub_spice_none",
+            "name": "Non-Spicy (Original)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_spice_mild",
+            "name": "Mild Spicy"
+          },
+          {
+            "_id": "sub_spice_hot",
+            "name": "Extra Spicy (Chili Flakes)"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_extra_parm",
+        "name": "Extra Shaved Parmesan",
+        "price": 1
+      },
+      {
+        "_id": "sub_extra_sauce",
+        "name": "Extra Bolognese Meat Sauce",
+        "price": 1.5
+      },
+      {
+        "_id": "sub_extra_bread",
+        "name": "Garlic Bread (2 pcs)",
+        "price": 1.5
+      }
+    ]
+  },
+  {
+    "_id": "prod019",
+    "category": "cat005",
+    "name": "Margherita Pizza",
+    "desc": "Stone-baked artisanal pizza topped with rich tomato sauce, melted mozzarella cheese, and fresh basil.",
+    "price": 8.5,
+    "stock": 25,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Size",
+        "subvariations": [
+          {
+            "_id": "sub_size_9inch",
+            "name": "Medium 9-inch",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_12inch",
+            "name": "Large 12-inch"
+          }
+        ]
+      },
+      {
+        "_id": "var_crust",
+        "name": "Crust Style",
+        "subvariations": [
+          {
+            "_id": "sub_crust_crispy",
+            "name": "Thin & Crispy",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_crust_tossed",
+            "name": "Hand-Tossed Classic"
+          },
+          {
+            "_id": "sub_crust_stuffed",
+            "name": "Cheese Stuffed Crust"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_top_mozzarella",
+        "name": "Extra Mozzarella",
+        "price": 1.5
+      },
+      {
+        "_id": "sub_top_pepperoni",
+        "name": "Pepperoni Slices",
+        "price": 2
+      },
+      {
+        "_id": "sub_top_mushrooms",
+        "name": "Fresh Mushrooms",
+        "price": 1
+      },
+      {
+        "_id": "sub_top_olives",
+        "name": "Black Olives",
+        "price": 1
+      }
+    ]
+  },
+  {
+    "_id": "prod020",
+    "category": "cat005",
+    "name": "French Fries",
+    "desc": "Golden crispy potato fries fried to perfection and lightly tossed in fine sea salt.",
+    "price": 3.5,
+    "stock": 100,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_size",
+        "name": "Portion",
+        "subvariations": [
+          {
+            "_id": "sub_size_reg",
+            "name": "Regular",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_size_large",
+            "name": "Large"
+          }
+        ]
+      },
+      {
+        "_id": "var_seasoning",
+        "name": "Seasoning Flavor",
+        "subvariations": [
+          {
+            "_id": "sub_seas_salt",
+            "name": "Classic Sea Salt",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_seas_truffle",
+            "name": "Truffle Salt & Herb"
+          },
+          {
+            "_id": "sub_seas_cheese",
+            "name": "Shake Cheese Powder"
+          },
+          {
+            "_id": "sub_seas_cajun",
+            "name": "Spicy Cajun"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_dip_ketchup",
+        "name": "Tomato Ketchup",
+        "price": 0
+      },
+      {
+        "_id": "sub_dip_chili",
+        "name": "Sweet Chili Sauce",
+        "price": 0
+      },
+      {
+        "_id": "sub_dip_truffle",
+        "name": "Truffle Mayo Dip",
+        "price": 0.6
+      },
+      {
+        "_id": "sub_dip_cheese",
+        "name": "Cheddar Cheese Dip",
+        "price": 0.8
+      }
+    ]
+  },
+  {
+    "_id": "prod021",
+    "category": "cat006",
+    "name": "Tiramisu",
+    "desc": "Authentic Italian dessert made with coffee-dipped savoiardi ladyfingers and whipped mascarpone cream.",
+    "price": 5.5,
+    "stock": 30,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_serving",
+        "name": "Portion",
+        "subvariations": [
+          {
+            "_id": "sub_srv_single",
+            "name": "Single Slice",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_srv_double",
+            "name": "Double Portion (Sharing)"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_addon_gelato",
+        "name": "Vanilla Gelato Scoop",
+        "price": 1.5
+      },
+      {
+        "_id": "sub_addon_cocoa",
+        "name": "Extra Dark Cocoa Powder",
+        "price": 0
+      }
+    ]
+  },
+  {
+    "_id": "prod022",
+    "category": "cat006",
+    "name": "Chocolate Brownie",
+    "desc": "Decadent dark chocolate brownie with a fudgy center, crisp crust, and rich cocoa flavor.",
+    "price": 4,
+    "stock": 50,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=400"
+    },
+    "variations": [],
+    "addons": [
+      {
+        "_id": "sub_extra_icecream",
+        "name": "Vanilla Ice Cream Scoop",
+        "price": 1.5
+      },
+      {
+        "_id": "sub_extra_fudge",
+        "name": "Warm Chocolate Fudge",
+        "price": 0.6
+      },
+      {
+        "_id": "sub_extra_whip",
+        "name": "Whipped Cream",
+        "price": 0.5
+      }
+    ]
+  },
+  {
+    "_id": "prod023",
+    "category": "cat006",
+    "name": "Cheesecake",
+    "desc": "Creamy New York style baked cheesecake with a smooth texture on a buttery graham cracker crust.",
+    "price": 5,
+    "stock": 35,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1524351199432-d330df18e76c?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_sauce",
+        "name": "Fruit Sauce / Drizzle",
+        "subvariations": [
+          {
+            "_id": "sub_sauce_straw",
+            "name": "Strawberry Compote",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_sauce_blue",
+            "name": "Blueberry Compote"
+          },
+          {
+            "_id": "sub_sauce_caramel",
+            "name": "Salted Caramel"
+          },
+          {
+            "_id": "sub_sauce_none",
+            "name": "Original (No Sauce)"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_extra_berries",
+        "name": "Fresh Mixed Berries",
+        "price": 1.2
+      },
+      {
+        "_id": "sub_extra_whip",
+        "name": "Whipped Cream",
+        "price": 0.5
+      }
+    ]
+  },
+  {
+    "_id": "prod024",
+    "category": "cat007",
+    "name": "Coca Cola",
+    "desc": "Iconic chilled carbonated soft drink delivering the classic, fizzy, and refreshing cola flavor.",
+    "price": 2,
+    "stock": 200,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1554866585-cd94860890b7?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_serving",
+        "name": "Package Size",
+        "subvariations": [
+          {
+            "_id": "sub_pack_can",
+            "name": "Can (330ml)",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_pack_bottle",
+            "name": "Bottle (500ml)"
+          }
+        ]
+      }
+    ],
+    "addons": [
+      {
+        "_id": "sub_addon_lemon",
+        "name": "Fresh Lemon Slice",
+        "price": 0.3
+      }
+    ]
+  },
+  {
+    "_id": "prod025",
+    "category": "cat007",
+    "name": "Sparkling Water",
+    "desc": "Pure sparkling mineral water with lively bubbles, clean taste, and ultra-crisp hydration.",
+    "price": 2.5,
+    "stock": 180,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1523362628745-0c100150b504?w=400"
+    },
+    "variations": [
+      {
+        "_id": "var_flavor",
+        "name": "Flavor",
+        "subvariations": [
+          {
+            "_id": "sub_flav_original",
+            "name": "Original / Pure",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_flav_lime",
+            "name": "Lime Infused"
+          },
+          {
+            "_id": "sub_flav_peach",
+            "name": "White Peach Infused"
+          }
+        ]
+      },
+      {
+        "_id": "var_serving",
+        "name": "Serving Style",
+        "subvariations": [
+          {
+            "_id": "sub_srv_chilled",
+            "name": "Chilled Bottle",
+            "isDefault": true
+          },
+          {
+            "_id": "sub_srv_cupice_lemon",
+            "name": "Cup with Ice & Lemon Slice"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": "prod026",
+    "category": "cat007",
+    "name": "Bottled Mineral Water",
+    "desc": "Natural still mineral water in a 500ml sealed eco-friendly bottle for crisp, pure hydration.",
+    "price": 1.5,
+    "stock": 150,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1548839140-29a749e1bc4e?w=400"
+    }
+  },
+  {
+    "_id": "prod027",
+    "category": "cat006",
+    "name": "Chocolate Chip Cookie",
+    "desc": "Freshly baked artisan cookie packed with decadent melted dark chocolate chunks.",
+    "price": 2.2,
+    "stock": 90,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400"
+    }
+  },
+  {
+    "_id": "prod028",
+    "category": "cat007",
+    "name": "Ceramic Coffee Mug",
+    "desc": "Handcrafted minimalist ceramic mug with matte glaze finish, perfect for your daily brew.",
+    "price": 12,
+    "stock": 0,
+    "mainImage": {
+      "url": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=400"
+    }
+  }
+]
