@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { useTableCanvasContext } from '@/contexts/table-canvas-context'
 import {
   Plus,
@@ -8,6 +8,8 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   LayoutGrid,
+  Save,
+  Check,
 } from 'lucide-react'
 import { cn } from '#/utils/styles'
 import PlacedTableItem from './placed-table-item'
@@ -45,9 +47,16 @@ const FloorPlanCanvas = () => {
     isSidebarOpen,
     toggleSidebar,
     setIsSidebarOpen,
+    handleSaveToStorage,
+    hasUnsavedChanges,
+    isSavedFeedback,
+    zoom,
+    setZoom,
   } = useTableCanvasContext()
 
-  const [canvasWidth, setCanvasWidth] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [containerWidth, setContainerWidth] = useState(0)
+  const [containerHeight, setContainerHeight] = useState(0)
 
   const handleStartRename = useCallback(
     (id: string) => setEditingTableId(id),
@@ -59,20 +68,47 @@ const FloorPlanCanvas = () => {
     [setEditingTableId],
   )
 
-  // Track canvas width via ResizeObserver once to prevent layout thrashing inside table items
+  // Track container dimensions to auto scale on mobile / small screen sizes
   useEffect(() => {
-    const el = canvasRef.current
-    if (!el) return
-    setCanvasWidth(el.clientWidth)
+    const container = containerRef.current
+    if (!container) return
 
-    const observer = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        setCanvasWidth(entry.contentRect.width)
-      }
-    })
-    observer.observe(el)
-    return () => observer.disconnect()
-  }, [canvasRef])
+    const update = () => {
+      setContainerWidth(container.clientWidth)
+      setContainerHeight(container.clientHeight)
+    }
+    update()
+
+    const ro = new ResizeObserver(update)
+    ro.observe(container)
+    return () => ro.disconnect()
+  }, [])
+
+  // Calculate floor plan bounding dimensions to fit all tables comfortably
+  const contentBounds = useMemo(() => {
+    const minW = 840
+    const minH = 580
+    let maxX = minW
+    let maxY = minH
+    for (const t of tables) {
+      const s = t.size ?? tableSize
+      if (t.x + s + 40 > maxX) maxX = t.x + s + 40
+      if (t.y + s + 40 > maxY) maxY = t.y + s + 40
+    }
+    return { width: maxX, height: maxY }
+  }, [tables, tableSize])
+
+  // Responsive Auto-Scale:
+  // - Desktop: scale = 1, canvas expands full width/height naturally
+  // - Mobile: auto scales down proportionally to fit the screen width
+  const isScaled = containerWidth > 0 && containerWidth < contentBounds.width
+  const autoScale = isScaled
+    ? Math.max(0.35, Math.min(1, containerWidth / contentBounds.width))
+    : 1
+
+  useEffect(() => {
+    setZoom(autoScale)
+  }, [autoScale, setZoom])
 
   // Count tables by status for the quick filter bar
   const statusCounts = useMemo(() => {
@@ -85,7 +121,7 @@ const FloorPlanCanvas = () => {
   }, [tables])
 
   return (
-    <section className="relative flex flex-1 flex-col overflow-hidden rounded-2xl bg-[#ecebe8] shadow-xs border border-stone-200/80">
+    <section className="flex flex-1 flex-col overflow-hidden rounded-2xl bg-white shadow-xs border border-stone-200/80">
       {/* Canvas Header / Actions Toolbar */}
       <div className="flex items-center justify-between px-5 py-3">
         <div className="flex items-center gap-2.5">
@@ -122,6 +158,38 @@ const FloorPlanCanvas = () => {
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Save Layout Button */}
+          <button
+            type="button"
+            onClick={handleSaveToStorage}
+            title={hasUnsavedChanges ? 'Save changes to storage' : 'All changes saved'}
+            className={cn(
+              'flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-xs',
+              isSavedFeedback
+                ? 'bg-emerald-600 text-white'
+                : hasUnsavedChanges
+                  ? 'bg-primary text-white hover:bg-primary/90 ring-2 ring-primary/30'
+                  : 'bg-white text-stone-600 border border-stone-200 hover:bg-stone-50',
+            )}
+          >
+            {isSavedFeedback ? (
+              <>
+                <Check size={13} className="text-white" />
+                <span>Saved!</span>
+              </>
+            ) : (
+              <>
+                <Save size={13} className={hasUnsavedChanges ? 'text-white' : 'text-stone-500'} />
+                <span>Save</span>
+                {hasUnsavedChanges && (
+                  <span className="size-1.5 rounded-full bg-amber-300 animate-ping" />
+                )}
+              </>
+            )}
+          </button>
+
+          <div className="h-4 w-px bg-stone-300" />
+
           <button
             type="button"
             onClick={handleResetDefault}
@@ -214,100 +282,135 @@ const FloorPlanCanvas = () => {
         })}
       </div>
 
-      {/* Canvas Drop Zone with Grid Pattern & #ecebe8 background */}
+      {/* Canvas Viewport with Auto-Scale for Mobile & Smooth Touch Scroll */}
       <div
-        ref={canvasRef}
-        onClick={() => setSelectedTableId(null)}
-        onDragOver={handleDragOver}
-        onDragLeave={handleDragLeave}
-        onDrop={handleDrop}
-        className={cn(
-          'relative flex-1 overflow-hidden select-none transition-colors bg-[#ecebe8]',
-          '[background-size:24px_24px] bg-[radial-gradient(#d3d1cc_1.2px,transparent_1.2px)]',
-        )}
+        ref={containerRef}
+        className="relative flex-1 overflow-auto custom-scrollbar select-none bg-[#ecebe8] [background-size:24px_24px] bg-[radial-gradient(#d3d1cc_1.2px,transparent_1.2px)]"
+        style={{ touchAction: 'pan-x pan-y' }}
       >
-        {/* Quick Open Templates floating button on canvas when sidebar is collapsed */}
-        {!isSidebarOpen && (
-          <button
-            type="button"
-            onClick={() => setIsSidebarOpen(true)}
-            title="Open table templates sidebar"
-            className="absolute left-3 top-3.5 z-20 flex items-center gap-2 rounded-xl bg-white/95 px-3 py-2 text-xs font-bold text-stone-800 shadow-md border border-stone-200/90 hover:bg-white hover:text-primary hover:border-primary/50 transition-all cursor-pointer animate-pop-in backdrop-blur-xs"
-          >
-            <LayoutGrid size={15} className="text-primary" />
-            <span>Templates</span>
-            <span className="rounded-full bg-primary/10 px-1.5 py-0.2 text-[10px] font-bold text-primary">
-              12
-            </span>
-          </button>
-        )}
-        {/* Drag Over Overlay Alert */}
-        {isDragOver && (
-          <div className="pointer-events-none absolute inset-3 z-30 flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-primary bg-primary/10 backdrop-blur-[1px] transition-all">
-            <div className="flex flex-col items-center gap-2 rounded-2xl bg-white/95 px-6 py-4 shadow-lg text-center">
-              <div className="flex size-12 items-center justify-center rounded-full bg-primary/15 text-primary">
-                <Plus size={24} className="animate-bounce" />
-              </div>
-              <p className="text-sm font-bold text-stone-900">
-                Drop table here
-              </p>
-              <p className="text-xs text-stone-500">
-                Table will be placed at this position
-              </p>
-            </div>
-          </div>
-        )}
-
-        {/* Empty State */}
-        {tables.length === 0 && !isDragOver && (
-          <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-            <div className="flex size-14 items-center justify-center rounded-2xl bg-white/80 shadow-2xs text-stone-400 mb-3">
-              <Move size={24} />
-            </div>
-            <h3 className="text-sm font-bold text-stone-800">
-              Floor plan is empty
-            </h3>
-            <p className="text-xs text-stone-500 max-w-xs mt-1">
-              Drag a table template from the left sidebar or load the sample floor plan.
-            </p>
-            <button
-              type="button"
-              onClick={handleResetDefault}
-              className="pointer-events-auto mt-4 flex items-center gap-1.5 rounded-xl bg-white px-3.5 py-2 text-xs font-bold text-primary shadow-xs border border-stone-200 hover:bg-stone-50 transition-colors cursor-pointer"
-            >
-              <RotateCcw size={13} />
-              <span>Load Sample Floor Plan</span>
-            </button>
-          </div>
-        )}
-
-        {/* Placed Tables */}
-        {tables.map((table) => (
-          <PlacedTableItem
-            key={table.id}
-            table={table}
-            tableSize={tableSize}
-            canvasWidth={canvasWidth}
-            isDragging={draggingTableId === table.id}
-            isSelected={selectedTableId === table.id}
-            isEditingName={editingTableId === table.id}
-            isFilteredOut={
-              statusFilter !== 'all' &&
-              (table.status || 'available') !== statusFilter
+        <div
+          style={
+            isScaled
+              ? {
+                  width: `${contentBounds.width * zoom}px`,
+                  height: `${Math.max(contentBounds.height, Math.round(containerHeight / zoom)) * zoom}px`,
+                }
+              : undefined
+          }
+          className={cn(
+            'relative',
+            !isScaled && 'w-full h-full min-w-full min-h-full',
+          )}
+        >
+          {/* Restaurant Floor Plan Surface */}
+          <div
+            ref={canvasRef}
+            onClick={() => setSelectedTableId(null)}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+            onDrop={handleDrop}
+            style={
+              isScaled
+                ? {
+                    width: `${contentBounds.width}px`,
+                    height: `${Math.max(contentBounds.height, Math.round(containerHeight / zoom))}px`,
+                    transform: `scale(${zoom})`,
+                    transformOrigin: 'top left',
+                  }
+                : undefined
             }
-            onPointerDown={handlePointerDown}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerUp}
-            onResize={handleResizeTable}
-            onRotate={handleRotateTable}
-            onUpdateStatus={handleUpdateTableStatus}
-            onSelect={setSelectedTableId}
-            onStartRename={handleStartRename}
-            onSaveRename={handleUpdateTableName}
-            onCancelRename={handleCancelRename}
-            onDelete={handleDeleteTable}
-          />
-        ))}
+            className={cn(
+              'relative select-none transition-[border-color,background-color]',
+              !isScaled && 'w-full h-full min-w-full min-h-full',
+            )}
+          >
+
+            {/* Quick Open Templates floating button on canvas when sidebar is collapsed */}
+            {!isSidebarOpen && (
+              <button
+                type="button"
+                onClick={() => setIsSidebarOpen(true)}
+                title="Open table templates sidebar"
+                className="absolute left-3 top-3.5 z-20 flex items-center gap-2 rounded-xl bg-white/95 px-3 py-2 text-xs font-bold text-stone-800 shadow-md border border-stone-200/90 hover:bg-white hover:text-primary hover:border-primary/50 transition-all cursor-pointer animate-pop-in backdrop-blur-xs"
+              >
+                <LayoutGrid size={15} className="text-primary" />
+                <span>Templates</span>
+                <span className="rounded-full bg-primary/10 px-1.5 py-0.2 text-[10px] font-bold text-primary">
+                  7
+                </span>
+              </button>
+            )}
+
+            {/* Drag Over Overlay Alert */}
+            {isDragOver && (
+              <div className="pointer-events-none absolute inset-3 z-30 flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-primary bg-primary/10 backdrop-blur-[1px] transition-all">
+                <div className="flex flex-col items-center gap-2 rounded-2xl bg-white/95 px-6 py-4 shadow-lg text-center">
+                  <div className="flex size-12 items-center justify-center rounded-full bg-primary/15 text-primary">
+                    <Plus size={24} className="animate-bounce" />
+                  </div>
+                  <p className="text-sm font-bold text-stone-900">
+                    Drop table here
+                  </p>
+                  <p className="text-xs text-stone-500">
+                    Table will be placed at this position
+                  </p>
+                </div>
+              </div>
+            )}
+
+            {/* Empty State */}
+            {tables.length === 0 && !isDragOver && (
+              <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                <div className="flex size-14 items-center justify-center rounded-2xl bg-white/80 shadow-2xs text-stone-400 mb-3">
+                  <Move size={24} />
+                </div>
+                <h3 className="text-sm font-bold text-stone-800">
+                  Floor plan is empty
+                </h3>
+                <p className="text-xs text-stone-500 max-w-xs mt-1">
+                  Drag a table template from the left sidebar or load the sample floor plan.
+                </p>
+                <button
+                  type="button"
+                  onClick={handleResetDefault}
+                  className="pointer-events-auto mt-4 flex items-center gap-1.5 rounded-xl bg-white px-3.5 py-2 text-xs font-bold text-primary shadow-xs border border-stone-200 hover:bg-stone-50 transition-colors cursor-pointer"
+                >
+                  <RotateCcw size={13} />
+                  <span>Load Sample Floor Plan</span>
+                </button>
+              </div>
+            )}
+
+            {/* Placed Tables */}
+            {tables.map((table) => (
+              <PlacedTableItem
+                key={table.id}
+                table={table}
+                tableSize={tableSize}
+                canvasWidth={isScaled ? contentBounds.width : containerWidth || 840}
+                zoom={zoom}
+                isDragging={draggingTableId === table.id}
+                isSelected={selectedTableId === table.id}
+                isEditingName={editingTableId === table.id}
+                isFilteredOut={
+                  statusFilter !== 'all' &&
+                  (table.status || 'available') !== statusFilter
+                }
+                onPointerDown={handlePointerDown}
+                onPointerMove={handlePointerMove}
+                onPointerUp={handlePointerUp}
+                onResize={handleResizeTable}
+                onRotate={handleRotateTable}
+                onUpdateStatus={handleUpdateTableStatus}
+                onSelect={setSelectedTableId}
+                onStartRename={handleStartRename}
+                onSaveRename={handleUpdateTableName}
+                onCancelRename={handleCancelRename}
+                onDelete={handleDeleteTable}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

@@ -13,6 +13,7 @@ export interface StatusConfig {
   badgeBg: string
   badgeText: string
   description: string
+  filter: string
 }
 
 export const TABLE_STATUS_CONFIG: Record<TableStatus, StatusConfig> = {
@@ -29,6 +30,8 @@ export const TABLE_STATUS_CONFIG: Record<TableStatus, StatusConfig> = {
     badgeBg: 'bg-emerald-600',
     badgeText: 'text-white',
     description: 'Ready for guests',
+    filter:
+      'invert(52%) sepia(85%) saturate(442%) hue-rotate(113deg) brightness(96%) contrast(89%)',
   },
   reserved: {
     key: 'reserved',
@@ -43,6 +46,8 @@ export const TABLE_STATUS_CONFIG: Record<TableStatus, StatusConfig> = {
     badgeBg: 'bg-amber-600',
     badgeText: 'text-white',
     description: 'Booked in advance',
+    filter:
+      'invert(71%) sepia(82%) saturate(1637%) hue-rotate(5deg) brightness(101%) contrast(96%)',
   },
   occupied: {
     key: 'occupied',
@@ -57,6 +62,8 @@ export const TABLE_STATUS_CONFIG: Record<TableStatus, StatusConfig> = {
     badgeBg: 'bg-blue-600',
     badgeText: 'text-white',
     description: 'Guests seated',
+    filter:
+      'invert(47%) sepia(74%) saturate(2225%) hue-rotate(200deg) brightness(99%) contrast(97%)',
   },
   ordered: {
     key: 'ordered',
@@ -71,6 +78,8 @@ export const TABLE_STATUS_CONFIG: Record<TableStatus, StatusConfig> = {
     badgeBg: 'bg-purple-600',
     badgeText: 'text-white',
     description: 'Order placed',
+    filter:
+      'invert(55%) sepia(85%) saturate(2250%) hue-rotate(235deg) brightness(100%) contrast(100%)',
   },
   waiting_food: {
     key: 'waiting_food',
@@ -85,6 +94,8 @@ export const TABLE_STATUS_CONFIG: Record<TableStatus, StatusConfig> = {
     badgeBg: 'bg-orange-600',
     badgeText: 'text-white',
     description: 'Kitchen preparing',
+    filter:
+      'invert(66%) sepia(57%) saturate(2371%) hue-rotate(345deg) brightness(101%) contrast(97%)',
   },
   out_of_order: {
     key: 'out_of_order',
@@ -99,6 +110,8 @@ export const TABLE_STATUS_CONFIG: Record<TableStatus, StatusConfig> = {
     badgeBg: 'bg-stone-700',
     badgeText: 'text-white',
     description: 'Temporarily closed',
+    filter:
+      'invert(47%) sepia(8%) saturate(545%) hue-rotate(345deg) brightness(96%) contrast(85%)',
   },
 }
 

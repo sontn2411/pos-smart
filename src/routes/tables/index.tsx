@@ -15,9 +15,9 @@ function RouteComponent() {
         <Header />
       </div>
 
-      <main className="flex-1 overflow-hidden p-4 md:py-3 md:px-6">
+      <main className="flex-1 overflow-hidden p-2 sm:p-4 md:py-3 md:px-6">
         <TableCanvasProvider>
-          <div className="flex h-full gap-4 overflow-hidden">
+          <div className="relative flex h-full gap-2 sm:gap-4 overflow-hidden">
             <TableSidebar />
             <FloorPlanCanvas />
           </div>

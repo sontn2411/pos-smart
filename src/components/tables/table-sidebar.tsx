@@ -6,11 +6,6 @@ import {
   table5,
   table6,
   table7,
-  table8,
-  table9,
-  table10,
-  table11,
-  table12,
 } from '@/assets'
 import { useTableCanvasContext } from '@/contexts/table-canvas-context'
 import { GripVertical, Plus, Info, PanelLeftClose } from 'lucide-react'
@@ -29,105 +24,86 @@ const TABLE_TEMPLATES: TableTemplate[] = [
     type: 'table1',
     name: 'Table 1',
     image: table1,
-    subtitle: 'Standard round table',
+    subtitle: 'Square dining table',
     capacity: '4 seats',
   },
   {
     type: 'table2',
     name: 'Table 2',
     image: table2,
-    subtitle: 'Square dining table',
-    capacity: '4 seats',
+    subtitle: 'Compact square table',
+    capacity: '2 seats',
   },
   {
     type: 'table3',
     name: 'Table 3',
     image: table3,
-    subtitle: 'Compact square table',
-    capacity: '2 seats',
+    subtitle: 'Standard round table',
+    capacity: '4 seats',
   },
   {
     type: 'table4',
     name: 'Table 4',
     image: table4,
-    subtitle: 'Rectangle dining table',
-    capacity: '6 seats',
+    subtitle: 'Round bistro table',
+    capacity: '2 seats',
   },
   {
     type: 'table5',
     name: 'Table 5',
     image: table5,
-    subtitle: 'Round bistro table',
-    capacity: '2 seats',
+    subtitle: 'Round banquet table',
+    capacity: '5 seats',
   },
   {
     type: 'table6',
     name: 'Table 6',
     image: table6,
-    subtitle: 'Large banquet table',
-    capacity: '8 seats',
+    subtitle: 'Large rectangle table',
+    capacity: '6 seats',
   },
   {
     type: 'table7',
     name: 'Table 7',
     image: table7,
-    subtitle: 'Long feast table',
-    capacity: '8 seats',
-  },
-  {
-    type: 'table8',
-    name: 'Table 8',
-    image: table8,
-    subtitle: 'Family banquet table',
-    capacity: '10 seats',
-  },
-  {
-    type: 'table9',
-    name: 'Table 9',
-    image: table9,
-    subtitle: 'Cafe bistro table',
-    capacity: '2 seats',
-  },
-  {
-    type: 'table10',
-    name: 'Table 10',
-    image: table10,
-    subtitle: 'Booth dining table',
+    subtitle: 'Rectangle dining table',
     capacity: '4 seats',
-  },
-  {
-    type: 'table11',
-    name: 'Table 11',
-    image: table11,
-    subtitle: 'Bar high-top table',
-    capacity: '2 seats',
-  },
-  {
-    type: 'table12',
-    name: 'Table 12',
-    image: table12,
-    subtitle: 'VIP conference table',
-    capacity: '12 seats',
   },
 ]
 
 const TableSidebar = () => {
-  const { handleTemplateDragStart, handleQuickAdd, isSidebarOpen, setIsSidebarOpen } =
-    useTableCanvasContext()
+  const {
+    handleTemplateDragStart,
+    handleQuickAdd,
+    isSidebarOpen,
+    setIsSidebarOpen,
+  } = useTableCanvasContext()
 
   return (
-    <aside
-      className={cn(
-        'flex flex-col overflow-hidden rounded-2xl bg-white shadow-xs border border-stone-200/80 transition-all duration-300 ease-in-out',
-        isSidebarOpen
-          ? 'w-72 shrink-0 p-4 opacity-100'
-          : 'w-0 shrink-0 p-0 border-0 opacity-0 pointer-events-none -mr-4',
+    <>
+      {/* Mobile Backdrop */}
+      {isSidebarOpen && (
+        <div
+          onClick={() => setIsSidebarOpen(false)}
+          className="fixed inset-0 z-40 bg-black/25 backdrop-blur-[2px] md:hidden"
+        />
       )}
-    >
+
+      <aside
+        className={cn(
+          'flex flex-col overflow-hidden rounded-2xl bg-white shadow-xl md:shadow-xs border border-stone-200/80 transition-all duration-300 ease-in-out',
+          'md:relative absolute inset-y-0 left-0 z-50 h-full',
+          isSidebarOpen
+            ? 'w-72 shrink-0 p-4 opacity-100 translate-x-0'
+            : 'w-0 shrink-0 p-0 border-0 opacity-0 pointer-events-none md:-mr-4 -translate-x-full md:translate-x-0',
+        )}
+      >
       <div className="mb-3 shrink-0">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <h2 className="text-base font-bold text-stone-900 whitespace-nowrap">Table Templates</h2>
+            <h2 className="text-base font-bold text-stone-900 whitespace-nowrap">
+              Table Templates
+            </h2>
             <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[11px] font-semibold text-stone-600 whitespace-nowrap">
               {TABLE_TEMPLATES.length} types
             </span>
@@ -199,11 +175,13 @@ const TableSidebar = () => {
         <div className="flex items-start gap-2">
           <Info size={14} className="text-stone-400 shrink-0 mt-0.5" />
           <p className="text-[11px] text-stone-600 leading-relaxed">
-            Drag templates onto the canvas, rotate 360° or resize to fit your floor plan.
+            Drag templates onto the canvas, rotate 360° or resize to fit your
+            floor plan.
           </p>
         </div>
       </div>
     </aside>
+    </>
   )
 }
 
