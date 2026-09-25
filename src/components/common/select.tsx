@@ -1,11 +1,6 @@
 import { ChevronDown } from 'lucide-react'
-import {
-  useState,
-  useRef,
-  useEffect,
-  type ReactNode,
-  type ComponentType,
-} from 'react'
+import type { ReactNode, ComponentType } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export interface SelectOption {
   value: string

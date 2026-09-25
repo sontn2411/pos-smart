@@ -7,7 +7,6 @@ import {
   RotateCcw,
   PanelLeftClose,
   PanelLeftOpen,
-  LayoutGrid,
   Save,
   Check,
 } from 'lucide-react'
@@ -46,7 +45,6 @@ const FloorPlanCanvas = () => {
     setStatusFilter,
     isSidebarOpen,
     toggleSidebar,
-    setIsSidebarOpen,
     handleSaveToStorage,
     hasUnsavedChanges,
     isSavedFeedback,
@@ -128,7 +126,11 @@ const FloorPlanCanvas = () => {
           <button
             type="button"
             onClick={toggleSidebar}
-            title={isSidebarOpen ? 'Collapse templates sidebar' : 'Expand templates sidebar'}
+            title={
+              isSidebarOpen
+                ? 'Collapse templates sidebar'
+                : 'Expand templates sidebar'
+            }
             className={cn(
               'flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all cursor-pointer shadow-2xs',
               isSidebarOpen
@@ -162,7 +164,11 @@ const FloorPlanCanvas = () => {
           <button
             type="button"
             onClick={handleSaveToStorage}
-            title={hasUnsavedChanges ? 'Save changes to storage' : 'All changes saved'}
+            title={
+              hasUnsavedChanges
+                ? 'Save changes to storage'
+                : 'All changes saved'
+            }
             className={cn(
               'flex items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-bold transition-all cursor-pointer shadow-xs',
               isSavedFeedback
@@ -179,7 +185,12 @@ const FloorPlanCanvas = () => {
               </>
             ) : (
               <>
-                <Save size={13} className={hasUnsavedChanges ? 'text-white' : 'text-stone-500'} />
+                <Save
+                  size={13}
+                  className={
+                    hasUnsavedChanges ? 'text-white' : 'text-stone-500'
+                  }
+                />
                 <span>Save</span>
                 {hasUnsavedChanges && (
                   <span className="size-1.5 rounded-full bg-amber-300 animate-ping" />
@@ -324,9 +335,8 @@ const FloorPlanCanvas = () => {
               !isScaled && 'w-full h-full min-w-full min-h-full',
             )}
           >
-
             {/* Quick Open Templates floating button on canvas when sidebar is collapsed */}
-            {!isSidebarOpen && (
+            {/* {!isSidebarOpen && (
               <button
                 type="button"
                 onClick={() => setIsSidebarOpen(true)}
@@ -339,7 +349,7 @@ const FloorPlanCanvas = () => {
                   7
                 </span>
               </button>
-            )}
+            )} */}
 
             {/* Drag Over Overlay Alert */}
             {isDragOver && (
@@ -368,7 +378,8 @@ const FloorPlanCanvas = () => {
                   Floor plan is empty
                 </h3>
                 <p className="text-xs text-stone-500 max-w-xs mt-1">
-                  Drag a table template from the left sidebar or load the sample floor plan.
+                  Drag a table template from the left sidebar or load the sample
+                  floor plan.
                 </p>
                 <button
                   type="button"
@@ -387,7 +398,9 @@ const FloorPlanCanvas = () => {
                 key={table.id}
                 table={table}
                 tableSize={tableSize}
-                canvasWidth={isScaled ? contentBounds.width : containerWidth || 840}
+                canvasWidth={
+                  isScaled ? contentBounds.width : containerWidth || 840
+                }
                 zoom={zoom}
                 isDragging={draggingTableId === table.id}
                 isSelected={selectedTableId === table.id}

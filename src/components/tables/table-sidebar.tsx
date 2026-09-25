@@ -98,89 +98,89 @@ const TableSidebar = () => {
             : 'w-0 shrink-0 p-0 border-0 opacity-0 pointer-events-none md:-mr-4 -translate-x-full md:translate-x-0',
         )}
       >
-      <div className="mb-3 shrink-0">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <h2 className="text-base font-bold text-stone-900 whitespace-nowrap">
-              Table Templates
-            </h2>
-            <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[11px] font-semibold text-stone-600 whitespace-nowrap">
-              {TABLE_TEMPLATES.length} types
-            </span>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => setIsSidebarOpen(false)}
-            title="Collapse templates sidebar"
-            className="flex size-7 items-center justify-center rounded-lg text-stone-400 hover:bg-stone-100 hover:text-stone-700 transition-colors cursor-pointer"
-          >
-            <PanelLeftClose size={16} />
-          </button>
-        </div>
-        <p className="text-xs text-stone-500 mt-0.5 whitespace-nowrap">
-          Drag onto floor plan or click '+' to add
-        </p>
-      </div>
-
-      {/* Scrollable Templates List */}
-      <div className="flex flex-1 flex-col gap-2.5 overflow-y-auto custom-scrollbar pr-1 min-h-0">
-        {TABLE_TEMPLATES.map((tmpl) => (
-          <div
-            key={tmpl.type}
-            draggable
-            onDragStart={(e) => handleTemplateDragStart(e, tmpl.type)}
-            className="group relative flex cursor-grab items-center gap-3 rounded-xl border border-stone-200 bg-stone-50/70 p-2.5 transition-all hover:border-primary/50 hover:bg-primary/5 hover:shadow-xs active:cursor-grabbing"
-          >
-            <div className="flex size-13 shrink-0 items-center justify-center rounded-lg bg-white p-1 shadow-xs border border-stone-100">
-              <img
-                src={tmpl.image}
-                alt={tmpl.name}
-                className="size-11 object-contain pointer-events-none"
-              />
-            </div>
-
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-stone-800">
-                  {tmpl.name}
-                </span>
-                <GripVertical
-                  size={14}
-                  className="text-stone-400 group-hover:text-primary transition-colors"
-                />
-              </div>
-              <p className="text-[11px] text-stone-500 truncate mt-0.5">
-                {tmpl.subtitle}
-              </p>
-              <span className="inline-block text-[10px] font-medium text-primary">
-                {tmpl.capacity}
+        <div className="mb-3 shrink-0">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <h2 className="text-base font-bold text-stone-900 whitespace-nowrap">
+                Table Templates
+              </h2>
+              <span className="rounded-full bg-stone-100 px-2 py-0.5 text-[11px] font-semibold text-stone-600 whitespace-nowrap">
+                {TABLE_TEMPLATES.length} types
               </span>
             </div>
 
             <button
               type="button"
-              onClick={() => handleQuickAdd(tmpl.type)}
-              title={`Add ${tmpl.name} to floor plan`}
-              className="size-7 shrink-0 flex items-center justify-center rounded-lg bg-white border border-stone-200 text-stone-600 hover:bg-primary hover:text-white hover:border-primary transition-colors shadow-2xs cursor-pointer"
+              onClick={() => setIsSidebarOpen(false)}
+              title="Collapse templates sidebar"
+              className="flex size-7 items-center justify-center rounded-lg text-stone-400 hover:bg-stone-100 hover:text-stone-700 transition-colors cursor-pointer"
             >
-              <Plus size={13} />
+              <PanelLeftClose size={16} />
             </button>
           </div>
-        ))}
-      </div>
-
-      {/* Tips / Instructions */}
-      <div className="mt-3 shrink-0 rounded-xl bg-stone-50 p-2.5 border border-stone-200/60">
-        <div className="flex items-start gap-2">
-          <Info size={14} className="text-stone-400 shrink-0 mt-0.5" />
-          <p className="text-[11px] text-stone-600 leading-relaxed">
-            Drag templates onto the canvas, rotate 360° or resize to fit your
-            floor plan.
+          <p className="text-xs text-stone-500 mt-0.5 whitespace-nowrap">
+            Drag onto floor plan or click '+' to add
           </p>
         </div>
-      </div>
-    </aside>
+
+        {/* Scrollable Templates List */}
+        <div className="flex flex-1 flex-col gap-2.5 overflow-y-auto custom-scrollbar pr-1 min-h-0">
+          {TABLE_TEMPLATES.map((tmpl) => (
+            <div
+              key={tmpl.type}
+              draggable
+              onDragStart={(e) => handleTemplateDragStart(e, tmpl.type)}
+              className="group relative flex cursor-grab items-center gap-3 rounded-xl border border-stone-200 bg-stone-50/70 p-2.5 transition-all hover:border-primary/50 hover:bg-primary/5 hover:shadow-xs active:cursor-grabbing"
+            >
+              <div className="flex size-13 shrink-0 items-center justify-center rounded-lg bg-white p-1 shadow-xs border border-stone-100">
+                <img
+                  src={tmpl.image}
+                  alt={tmpl.name}
+                  className="size-11 object-contain pointer-events-none"
+                />
+              </div>
+
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-stone-800">
+                    {tmpl.name}
+                  </span>
+                  <GripVertical
+                    size={14}
+                    className="text-stone-400 group-hover:text-primary transition-colors"
+                  />
+                </div>
+                <p className="text-[11px] text-stone-500 truncate mt-0.5">
+                  {tmpl.subtitle}
+                </p>
+                <span className="inline-block text-[10px] font-medium text-primary">
+                  {tmpl.capacity}
+                </span>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => handleQuickAdd(tmpl.type)}
+                title={`Add ${tmpl.name} to floor plan`}
+                className="size-7 shrink-0 flex items-center justify-center rounded-lg bg-white border border-stone-200 text-stone-600 hover:bg-primary hover:text-white hover:border-primary transition-colors shadow-2xs cursor-pointer"
+              >
+                <Plus size={13} />
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {/* Tips / Instructions */}
+        <div className="mt-3 shrink-0 rounded-xl bg-stone-50 p-2.5 border border-stone-200/60">
+          <div className="flex items-start gap-2">
+            <Info size={14} className="text-stone-400 shrink-0 mt-0.5" />
+            <p className="text-[11px] text-stone-600 leading-relaxed">
+              Drag templates onto the canvas, rotate 360° or resize to fit your
+              floor plan.
+            </p>
+          </div>
+        </div>
+      </aside>
     </>
   )
 }

@@ -59,7 +59,7 @@ export function useTableCanvas(options: UseTableCanvasOptions = {}) {
     if (typeof window !== 'undefined' && window.innerWidth < 768) {
       return false
     }
-    return true
+    return false
   })
   const [statusFilter, setStatusFilter] = useState<TableStatus | 'all'>('all')
   const [isDragOver, setIsDragOver] = useState(false)

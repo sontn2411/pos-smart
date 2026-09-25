@@ -1,7 +1,7 @@
 import { logo2 } from '@/assets'
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from '@tanstack/react-router'
-import { UtensilsCrossed, Grid2X2 } from 'lucide-react'
+import { UtensilsCrossed, Grid2X2, ShoppingBag, Receipt } from 'lucide-react'
 import { cn } from '#/utils/styles'
 import HeaderNotification from './header-notification'
 import HeaderUser from './header-user'
@@ -18,6 +18,18 @@ const navbar = [
     name: 'Tables',
     path: '/tables' as const,
     icon: Grid2X2,
+  },
+  {
+    id: 3,
+    name: 'Orders',
+    path: '/orders' as const,
+    icon: ShoppingBag,
+  },
+  {
+    id: 4,
+    name: 'Transactions',
+    path: '/transactions' as const,
+    icon: Receipt,
   },
 ]
 
